@@ -46,6 +46,8 @@ O pipeline deve executar as seguintes etapas, nesta ordem:
 3. Executar `usp_LoadFatoVendas`, informando a mesma data de referência.
 4. Executar o notebook `NB_Move_Vendas_Processadas.ipynb`.
 
+![Pipeline de carga no Microsoft Fabric](img/pipeline.png)
+
 A ordem é importante: primeiro a dimensão deve ser atualizada, depois a fato deve ser carregada e, somente após o processamento bem-sucedido, os arquivos devem ser movidos para a pasta de processados.
 
 ## 5. Criar o modelo semântico
@@ -60,7 +62,15 @@ Crie o relacionamento:
 
 Também pode ser adicionada uma dimensão calendário relacionada à coluna de data da fato.
 
-## 6. Carregar os dados de julho de 2026
+## 6. Criar o relatório do Power BI
+
+Opcionalmente, crie um relatório a partir deste modelo semântico chamado `SCD type 2` e crie uma tabela adicionando as colunas `ano-mês`, `nome estrutura vendas`, `vendedor` e `valor`.
+
+O workspace final deve ficar conforme a imagem abaixo:
+
+![Workspace final no Microsoft Fabric](img/workspace_final.png)
+
+## 7. Carregar os dados de julho de 2026
 
 Faça o upload dos arquivos de julho de 2026 da pasta `data` deste repositório para `LH_Vendas > Files > novo`.
 
@@ -75,7 +85,7 @@ Após a execução, valide:
 
 Neste momento, o vendedor responsável pela estrutura deve ser `Paulo P`.
 
-## 7. Carregar os dados de agosto de 2026
+## 8. Carregar os dados de agosto de 2026
 
 Faça o upload dos arquivos de agosto de 2026 da pasta `data` deste repositório para `LH_Vendas > Files > novo`.
 
@@ -87,7 +97,7 @@ Neste exemplo, o vendedor muda de `Paulo P` para `Carlos C`.
 
 Após a execução, valide novamente a dimensão, a fato e a movimentação dos arquivos.
 
-## 8. Validar o histórico
+## 9. Validar o histórico
 
 A dimensão deverá manter as duas versões do vendedor, com períodos de validade diferentes:
 
@@ -98,7 +108,7 @@ A fato utiliza a combinação de `ID_Localizacao` e período de validade da dime
 
 Dessa forma, uma venda realizada em julho continua associada a `Paulo P`, enquanto uma venda realizada em agosto fica associada a `Carlos C`.
 
-## 9. Reprocessamento histórico
+## 10. Reprocessamento histórico
 
 Uma das características deste exemplo é permitir o reprocessamento de meses anteriores.
 
