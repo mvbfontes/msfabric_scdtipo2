@@ -1,6 +1,6 @@
 # SCD Tipo 2 no Microsoft Fabric
 
-Exemplo prático de implementação de **Slowly Changing Dimension (SCD) Tipo 2** no Microsoft Fabric, utilizando Fabric Warehouse, notebooks e arquivos CSV.
+Exemplo prático de implementação de **Slowly Changing Dimension (SCD) Tipo 2** no Microsoft Fabric, utilizando Fabric Warehouse, notebooks e arquivos CSV. Apresentação realizada no user group [**Fabric Lusófono**](https://community.fabric.microsoft.com/group/FabricLusfono) no dia 18/09/2026.
 
 ## Cenário
 
@@ -23,3 +23,7 @@ Neste exemplo, a dimensão de estrutura de vendas utiliza **SCD Tipo 2** para ma
 - Python / Notebooks
 - T-SQL
 - SCD Tipo 2
+
+## Referência
+
+Blog Data Mozart - Nikola Ilic: [Implementing SCD Type 2 in Microsoft Fabric – The Definitive Guide!](https://data-mozart.com/implementing-scd-type-2-in-microsoft-fabric-the-definitive-guide/)
